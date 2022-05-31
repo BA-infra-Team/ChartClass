@@ -68,6 +68,13 @@
     <Compile Include="Chart\cRowChart.cs" />
     <Compile Include="Chart\cStackedArea.cs" />
     <Compile Include="Chart\cStackedColumn.cs" />
+    <Compile Include="DecoratorPattern\Decorator\LabelPoint.cs" />
+    <Compile Include="DecoratorPattern\Decorator\PointGeometry.cs" />
+    <Compile Include="DecoratorPattern\Decorator\PushOut.cs" />
+    <Compile Include="DecoratorPattern\Decorator\StackMode.cs" />
+    <Compile Include="DecoratorPattern\Decorator\StrokeDeco.cs" />
+    <Compile Include="DecoratorPattern\Decorator\TitleDeco.cs" />
+    <Compile Include="DecoratorPattern\Decorator\ValueDeco.cs" />
     <Compile Include="FactortyPattern\CustomChart.cs" />
     <Compile Include="FactortyPattern\ChartStore.cs" />
     <Compile Include="CustomPieChart.cs" />
@@ -88,6 +95,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FactortyPattern\SimpleChartFactory.cs" />
+    <Compile Include="cSeries\cColumnSeries.cs" />
+    <Compile Include="cSeries\ChartSeries.cs" />
+    <Compile Include="cSeries\cLineSeries.cs" />
+    <Compile Include="cSeries\cPieSeries.cs" />
+    <Compile Include="cSeries\cRowSeries.cs" />
+    <Compile Include="cSeries\cStackedAreaSeries.cs" />
+    <Compile Include="cSeries\cStackedColumnSeries.cs" />
+    <Compile Include="cSeries\cStackedRowSeries.cs" />
     <Compile Include="SingletonPattern\Singleton.cs" />
     <Compile Include="StrategyPattern\BehaviorInterface\DynamicVisibility.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -117,7 +132,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Series\" />
     <Folder Include="StrategyPattern\BehaviorClass\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
