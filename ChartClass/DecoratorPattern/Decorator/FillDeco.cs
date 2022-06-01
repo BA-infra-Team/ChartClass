@@ -1,9 +1,12 @@
 ﻿using ChartClass.cSeries;
+using LiveCharts;
+using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace ChartClass.DecoratorPattern.Decorator
 {
@@ -15,14 +18,56 @@ namespace ChartClass.DecoratorPattern.Decorator
             this.chartSeries = chartSeries;
         }
 
-        public override string getTitle()
+        public override bool getDataLabels()
         {
-            return chartSeries.getTitle() + ", 채우기";
+            throw new NotImplementedException();
         }
 
-        public override double value()
+        public override Brush getFill()
         {
-            return .20 + chartSeries.value();
+            Brush brush = new SolidColorBrush(Colors.Red);
+            return brush;
+        }
+
+        public override Func<ChartPoint, string> getLabelPoint()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override double getOpacity()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Geometry getPointGeometry()
+        {
+            return DefaultGeometries.Square;
+        }
+
+        public override string getSeries()
+        {
+            return "LineSeries";
+        }
+
+        public override Brush getStroke()
+        {
+            Brush brush = new SolidColorBrush(Colors.Red);
+            return brush;
+        }
+
+        public override double getStrokeThickness()
+        {
+            return 1;
+        }
+
+        public override string getTitle()
+        {
+            return description;
+        }
+
+        public override double getValue()
+        {
+            return 3;
         }
     }
 }
