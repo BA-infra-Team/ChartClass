@@ -1,4 +1,5 @@
-﻿using ChartClass.Series;
+﻿using ChartClass.cSeries;
+using ChartClass.Series;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
-
+using static ChartClass.Observer_Pattern.CObservers;
+using static ChartClass.Observer_Pattern.ConcreteSB;
 
 namespace ChartClass
 {
@@ -28,12 +29,17 @@ namespace ChartClass
             InitializeComponent();
             //custom.Show(this);
 
-            SimpleChartFactory simpleChartFactory = new SimpleChartFactory();
-            ChartStore chartstore = new ChartStore(simpleChartFactory);
-            chart = chartstore.orderChart("LineChart");
-            chart.Show(this);
+            //SimpleChartFactory simpleChartFactory = new SimpleChartFactory();
+            //ChartStore chartstore = new ChartStore(simpleChartFactory);
+            //chart = chartstore.orderChart("PieChart");
+            //chart.Show(this);
 
-
+            //ConcreteSB concretesb = new ConcreteSB();
+            ConcreteSubject concreteSubject = new ConcreteSubject();
+            //PieChart Obser;
+            PChart observerA = new PChart(concreteSubject);
+            LChart observerB = new LChart(concreteSubject);
+            concreteSubject.setValue(100);
 
         }
 

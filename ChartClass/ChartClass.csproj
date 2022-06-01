@@ -92,6 +92,10 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Observer Pattern\ChartSB_interface.cs" />
+    <Compile Include="Observer Pattern\CObservers.cs" />
+    <Compile Include="Observer Pattern\ConcreteSB.cs" />
+    <Compile Include="Observer Pattern\Observer_interface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FactortyPattern\SimpleChartFactory.cs" />
