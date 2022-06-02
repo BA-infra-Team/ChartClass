@@ -27,9 +27,9 @@ namespace ChartClass.Observer_Pattern
 				_subject = subject;
 				subject.registerObserver(this);
 			}
-			public void update(int value)
+			public CustomChart update(int value)
 			{
-				chart = new CustomChart()
+                chart = new CustomChart()
 				{
 					new PieSeries()
 					{
@@ -51,10 +51,13 @@ namespace ChartClass.Observer_Pattern
 				};
 				//piechart.Series = this;
 				//form.elementHost.Child = piechart;
-				Form1.Instance.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
-				Form1.Instance.elementHost.Location = new System.Drawing.Point(0, 0);
-				Form1.Instance.elementHost.Size = new System.Drawing.Size(984, 486);
-				Form1.Instance.elementHost.Child = piechart1;
+				chart.getName("PieChart");
+				//chart.Show(this);
+				return chart;
+				//Form1.Instance.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
+				//Form1.Instance.elementHost.Location = new System.Drawing.Point(0, 0);
+				//Form1.Instance.elementHost.Size = new System.Drawing.Size(984, 486);
+				//Form1.Instance.elementHost.Child = piechart1;
 			}
 		}
 
@@ -63,6 +66,7 @@ namespace ChartClass.Observer_Pattern
 			private CustomChart chart;
 			//private CustomChart chart;
 			ConcreteSubject _subject;
+
 			public LChart(ConcreteSubject subject)
 			{
 				_subject = subject;
@@ -70,7 +74,7 @@ namespace ChartClass.Observer_Pattern
 				
 				
 			}
-			public void update(int value)
+			public CustomChart update(int value)
 			{
 				
 				Console.WriteLine(String.Format("B Class update, value: {0}", value));
@@ -92,6 +96,8 @@ namespace ChartClass.Observer_Pattern
 						Values = new ChartValues<double> {10,8,4,2,1, value }
 					}
 				};
+
+				return chart;
 			}
 		}
 
@@ -103,9 +109,11 @@ namespace ChartClass.Observer_Pattern
 				_subject = subject;
 				subject.registerObserver(this);
 			}
-			public void update(int value)
+			public CustomChart update(int value)
 			{
-				Console.WriteLine(String.Format("C Class update, value: {0}", value));
+				CustomChart chart = new CustomChart();
+				//Console.WriteLine(String.Format("C Class update, value: {0}", value));
+				return chart;
 			}
 		}
 	}

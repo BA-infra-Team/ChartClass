@@ -8,16 +8,8 @@ using LiveCharts.Wpf;
 
 namespace ChartClass.Series
 {
-    public class cRowSeries : ChartSeries
+    public class cRowSeries 
     {
-        public override string getTitle()
-        {
-            throw new NotImplementedException();
-        }
 
-        public override double value()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

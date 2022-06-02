@@ -1,4 +1,6 @@
-﻿using LiveCharts;
+﻿using ChartClass.DecoratorPattern.Decorator;
+using ChartClass.StrategyPattern.BehaviorInterface;
+using LiveCharts;
 using LiveCharts.Definitions.Charts;
 using LiveCharts.Wpf;
 using LiveCharts.Wpf.Charts.Base;
@@ -9,17 +11,29 @@ namespace ChartClass
 {
     public class CustomChart : SeriesCollection
     {
+        private ColorBehavior colorBehavior;
+        private DataBehavior dataBehavior;
+
         public PieChart piechart = new PieChart();
         public CartesianChart catersianchart = new CartesianChart();
 
+        //private static CustomChart uniqueInstance;
+
+        //private CustomChart() {}
+
+        //public static CustomChart getInstance()
+        //{
+        //    if (uniqueInstance == null)
+        //    {
+        //        uniqueInstance = new CustomChart();
+        //    }
+        //    return uniqueInstance;
+        //}
+        public CustomChart() { }
+
         public string name;
-        public CustomChart()
-        {
 
-        }
-        
-
-        public void Show(Form1 form)
+        public void Show(FactoryMethod form)
         {
             form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
             form.elementHost.Location = new System.Drawing.Point(0, 0);
@@ -34,7 +48,7 @@ namespace ChartClass
                     piechart.Series = this;
                     form.elementHost.Child = piechart;
                 }
-                else if(name == "LineChart")
+                else if (name == "LineChart")
                 {
                     catersianchart.Series = this;
                     form.elementHost.Child = catersianchart;
@@ -51,5 +65,22 @@ namespace ChartClass
         {
             name = Chartname;
         }
+        //public void performChangeColor()
+        //{
+        //    colorBehavior.ChangeDefaultColor();
+        //}
+        //public void performDataAdd()
+        //{
+        //    dataBehavior.AddData();
+        //}
+        //public void setFlyBehavior(ColorBehavior cb)
+        //{
+        //    colorBehavior = cb;
+        //}
+
+        //public void setQuackBehavior(DataBehavior db)
+        //{
+        //    dataBehavior = db;
+        //}
     }
 }

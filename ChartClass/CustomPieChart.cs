@@ -5,11 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms.Integration;
 using System.Windows.Forms;
+using ChartClass.StrategyPattern.BehaviorInterface;
+using System.Windows.Media;
 
 namespace ChartClass
 {
     public class CustomPieChart : PieChart
     {
+        private ColorBehavior colorBehavior;
+        private DataBehavior dataBehavior;
+
         public CustomPieChart()
         {
             Func<ChartPoint, string> labelPoint = chartPoint =>
@@ -40,7 +45,18 @@ namespace ChartClass
 
         public void Show(Form1 form)
         {
-            //Form1 form1 = new Form1();
+            form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
+            form.elementHost.Location = new System.Drawing.Point(0, 0);
+            form.elementHost.Name = "elementHost";
+            form.elementHost.Size = new System.Drawing.Size(984, 486);
+            form.elementHost.TabIndex = 0;
+            form.elementHost.Text = "elementHost";
+            form.elementHost.Child = this;
+            form.Controls.Add(form.elementHost);
+        }
+
+        public void Show(StrategyForm form)
+        {
             form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
             form.elementHost.Location = new System.Drawing.Point(0, 0);
             form.elementHost.Name = "elementHost";
@@ -90,17 +106,22 @@ namespace ChartClass
             this.Visibility = System.Windows.Visibility.Visible;
         }
 
-        public void createChart(Form1 form)
+        public void performChangeColor(SeriesCollection seriesCollection)
         {
-            //Form1 form1 = new Form1();
-            form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
-            form.elementHost.Location = new System.Drawing.Point(0, 0);
-            form.elementHost.Name = "elementHost";
-            form.elementHost.Size = new System.Drawing.Size(984, 486);
-            form.elementHost.TabIndex = 0;
-            form.elementHost.Text = "elementHost";
-            form.elementHost.Child = this;
-            form.Controls.Add(form.elementHost);
+            colorBehavior.ChangeDefaultColor(seriesCollection);
+        }
+        public void performDataAdd(SeriesCollection seriesCollection)
+        {
+            dataBehavior.AddData(seriesCollection);
+        }
+        public void setColorBehavior(ColorBehavior cb)
+        {
+            colorBehavior = cb;
+        }
+
+        public void setDataBehavior(DataBehavior db)
+        {
+            dataBehavior = db;
         }
     }
 }

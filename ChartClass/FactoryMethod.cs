@@ -6,36 +6,34 @@ using static ChartClass.Observer_Pattern.ConcreteSB;
 
 namespace ChartClass
 {
-    // 옵저버 패턴 
-    public partial class Form1 : Form
+    // 팩토리 패턴 
+    public partial class FactoryMethod : Form
     {
-        static Form1 _obj;
+        static FactoryMethod _obj;
         public static CustomPieChart custom = new CustomPieChart();
         public ElementHost elementHost = new ElementHost();
         public static CustomChart chart = new CustomChart();
-        public static Form1 Instance
+        public static FactoryMethod Instance
         {
             get
             {
                 if (_obj == null)
                 {
-                    _obj = new Form1();
+                    _obj = new FactoryMethod();
                 }
                 return _obj;
             }
         }
 
-        public Form1()
+        public FactoryMethod()
         {
             InitializeComponent();
+            //custom.Show(this);
 
-            //ConcreteSB concretesb = new ConcreteSB();
-            ConcreteSubject concreteSubject = new ConcreteSubject();
-            //PieChart Obser;
-            PChart observerA = new PChart(concreteSubject);
-            LChart observerB = new LChart(concreteSubject);
-            concreteSubject.setValue(100);
-            //chart.Show(this);
+            SimpleChartFactory simpleChartFactory = new SimpleChartFactory();
+            ChartStore chartstore = new ChartStore(simpleChartFactory);
+            chart = chartstore.orderChart("PieChart");
+            chart.Show(this);
 
         }
 

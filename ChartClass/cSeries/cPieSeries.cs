@@ -1,23 +1,17 @@
-﻿using System;
+﻿using LiveCharts.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ChartClass.cSeries;
-using LiveCharts.Wpf;
 
-namespace ChartClass.Series
+namespace ChartClass.cSeries
 {
-    public class cPieSeries : ChartSeries
+    public class cPieSeries : PieSeries
     {
-        public override string getTitle()
+        public cPieSeries(string _title, double _value)
         {
-            throw new NotImplementedException();
-        }
 
-        public override double value()
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -38,6 +38,18 @@ namespace ChartClass.Observer_Pattern
 				_value = value;
 				notifyObservers();
 			}
+
+			public void Show(Form1 form, ConcreteSubject concreteSubject)
+            {
+				//form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
+				//form.elementHost.Location = new System.Drawing.Point(0, 0);
+				//form.elementHost.Name = "elementHost";
+				//form.elementHost.Size = new System.Drawing.Size(984, 486);
+				//form.elementHost.TabIndex = 0;
+				//form.elementHost.Text = "elementHost";
+				//form.elementHost.Child = piechart1;
+				//form.Controls.Add(form.elementHost);
+			}
 		}
 	}
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChartClass.DecoratorPattern.Decorator
+namespace ChartClass.StrategyPattern.BehaviorInterface
 {
-    public class PushOut
+    internal interface ZoomBehavior
     {
     }
 }
