@@ -69,18 +69,29 @@ namespace ChartClass
                 };
                 chart.name = "LineChart";
             }
-            //if (type.Equals("PieChart"))
-            //{
-            //    chart.custompie = new CustomPieChart();
-            //}
-            //else if (type.Equals("LineChart"))
-            //{
-            //    chart.customline = new CustomLineChart();
-            //    //chart = new CustomLineChart();
-            //}
-
-            //chart.Show(Form1 form);
-
+            else if (type.Equals("RowChart"))
+            {
+                chart = new CustomChart()
+                {
+                    new RowSeries()
+                    {
+                        Title = "aaa",
+                        Values = new ChartValues<double> {3,4,5,6,7}
+                    },
+                    new RowSeries()
+                    {
+                        Title = "bbb",
+                        Values = new ChartValues<double> {1,7,4,10,15}
+                    },
+                    new RowSeries()
+                    {
+                        Title = "ccc",
+                        Values = new ChartValues<double> {10,8,4,2,1}
+                    }
+                };
+                chart.name = "RowChart";
+            }
+            
             return chart;
         }
     }

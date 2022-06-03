@@ -53,6 +53,11 @@ namespace ChartClass
                     catersianchart.Series = this;
                     form.elementHost.Child = catersianchart;
                 }
+                else if(name == "RowChart")
+                {
+                    catersianchart.Series = this;
+                    form.elementHost.Child = catersianchart;
+                }
             }
             form.Controls.Add(form.elementHost);
         }
