@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using LiveCharts;
 using LiveCharts.Wpf;
 using static ChartClass.Observer_Pattern.ConcreteSB;
 using static ChartClass.Observer_Pattern.Observer_interface;
 namespace ChartClass.Observer_Pattern
 {
-    internal class CObservers
+    public class CObservers
     {
-		
+		public static ObserverForm obform = new ObserverForm();
 		//각 클래스 생성자에서 ConcreteSubject를 인자로 받고, registerObserver를 호출하여 자신을 옵저버로 등록
 		public class PChart : Observer
 		{
+			
 			private CustomChart chart;
 			public PieChart piechart1 = new PieChart();
 			ConcreteSubject _subject;
@@ -27,7 +30,7 @@ namespace ChartClass.Observer_Pattern
 				_subject = subject;
 				subject.registerObserver(this);
 			}
-			public CustomChart update(int value)
+			public void update(int value)
 			{
                 chart = new CustomChart()
 				{
@@ -49,22 +52,31 @@ namespace ChartClass.Observer_Pattern
                         Visibility = System.Windows.Visibility.Visible,
 					}
 				};
-				//piechart.Series = this;
-				//form.elementHost.Child = piechart;
-				chart.getName("PieChart");
-				//chart.Show(this);
-				return chart;
-				//Form1.Instance.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
-				//Form1.Instance.elementHost.Location = new System.Drawing.Point(0, 0);
-				//Form1.Instance.elementHost.Size = new System.Drawing.Size(984, 486);
-				//Form1.Instance.elementHost.Child = piechart1;
-			}
+                //obform.elementHost1.Dock = DockStyle.Fill;
+                //obform.panel1.Location = new Point(0, 0);
+                //obform.panel1.Size = new Size(200, 200);
+                //piechart1.Series = chart;
+                //obform.elementHost1.Child = piechart1;
+                //obform.Show();
+
+                obform.panel1.Location = new Point(0, 0);
+                obform.panel1.Size = new Size(200, 200);
+                piechart1.Series = chart;
+                obform.elementHost1.Child = piechart1;
+
+                obform.Controls.Add(obform.panel1);
+                obform.panel1.Controls.Add(obform.elementHost1);
+                obform.elementHost1.Dock = DockStyle.Fill;
+                //form2.Controls.Add(form2.panel2.Controls.Add(form2.elementHost2));
+                obform.Show();
+            }
 		}
 
 		public class LChart : Observer
 		{
 			private CustomChart chart;
-			//private CustomChart chart;
+			
+			public CartesianChart catersianchart1 = new CartesianChart();
 			ConcreteSubject _subject;
 
 			public LChart(ConcreteSubject subject)
@@ -74,10 +86,10 @@ namespace ChartClass.Observer_Pattern
 				
 				
 			}
-			public CustomChart update(int value)
+			public void update(int value)
 			{
 				
-				Console.WriteLine(String.Format("B Class update, value: {0}", value));
+				//Console.WriteLine(String.Format("B Class update, value: {0}", value));
 				chart = new CustomChart()
 				{
 					new LineSeries()
@@ -96,24 +108,66 @@ namespace ChartClass.Observer_Pattern
 						Values = new ChartValues<double> {10,8,4,2,1, value }
 					}
 				};
+				obform.panel2.Location = new Point(200, 200);
+				obform.panel2.Size = new Size(200, 200);
+				catersianchart1.Series = chart;
+				obform.elementHost2.Child = catersianchart1;
 
-				return chart;
+				obform.Controls.Add(obform.panel2);
+				obform.panel2.Controls.Add(obform.elementHost2);
+				obform.elementHost2.Dock = DockStyle.Fill;
+				//form2.Controls.Add(form2.panel2.Controls.Add(form2.elementHost2));
+				obform.Show();
 			}
 		}
 
-		public class RowChart : Observer
+		public class Rchart : Observer
 		{
+			public CartesianChart catersianchart = new CartesianChart();
+
+			//public RowSeries rowchart = new RowSeries();
+			private CustomChart chart;
 			ConcreteSubject _subject;
-			public RowChart(ConcreteSubject subject)
+			public Rchart(ConcreteSubject subject)
 			{
 				_subject = subject;
 				subject.registerObserver(this);
 			}
-			public CustomChart update(int value)
+			public void update(int value)
 			{
 				CustomChart chart = new CustomChart();
 				//Console.WriteLine(String.Format("C Class update, value: {0}", value));
-				return chart;
+				//Console.WriteLine(String.Format("C Class update, value: {0}", value));
+				chart = new CustomChart()
+				{
+					new RowSeries()
+					{
+						Title = "eee",
+						Values = new ChartValues<double> {3, 4, value, 5 }
+					},
+                    new RowSeries()
+                    {
+                        Title = "fff",
+                        Values = new ChartValues<double> {1,7,4,10,15, value }
+                    },
+                    new RowSeries()
+                    {
+                        Title = "ggg",
+                        Values = new ChartValues<double> {10,8,4,2,1, value }
+                    }
+                };
+
+				obform.panel3.Location = new Point(200, 0);
+				obform.panel3.Size = new Size(200, 200);
+				catersianchart.Series = chart;
+				obform.elementHost3.Child = catersianchart;
+
+				obform.Controls.Add(obform.panel3);
+				obform.panel3.Controls.Add(obform.elementHost3);
+				obform.elementHost3.Dock = DockStyle.Fill;
+				//form2.Controls.Add(form2.panel2.Controls.Add(form2.elementHost2));
+				obform.Show();
+
 			}
 		}
 	}

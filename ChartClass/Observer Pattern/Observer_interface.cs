@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ChartClass.Observer_Pattern
 {
-    internal class Observer_interface
+    public class Observer_interface
     {
         public interface Observer
         {
-            CustomChart update(int value);
+            void update(int value);
         }
     }
 }

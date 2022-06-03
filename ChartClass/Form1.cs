@@ -6,13 +6,13 @@ using static ChartClass.Observer_Pattern.ConcreteSB;
 
 namespace ChartClass
 {
-    // 옵저버 패턴 
     public partial class Form1 : Form
     {
+
         static Form1 _obj;
         public static CustomPieChart custom = new CustomPieChart();
         public ElementHost elementHost = new ElementHost();
-        public static CustomChart chart = new CustomChart();
+        public CustomChart chart = new CustomChart();
         public static Form1 Instance
         {
             get
@@ -28,14 +28,21 @@ namespace ChartClass
         public Form1()
         {
             InitializeComponent();
+            //custom.Show(this);
+
 
             //ConcreteSB concretesb = new ConcreteSB();
             ConcreteSubject concreteSubject = new ConcreteSubject();
             //PieChart Obser;
             PChart observerA = new PChart(concreteSubject);
             LChart observerB = new LChart(concreteSubject);
-            concreteSubject.setValue(100);
-            //chart.Show(this);
+            Rchart observerC = new Rchart(concreteSubject);
+            concreteSubject.setValue(50);
+            //concreteSubject.removeObserver(observerA);
+            //concreteSubject.setValue(100);
+            //concreteSubject.registerObserver(observerA);
+            //concreteSubject.setValue(30);
+
 
         }
 

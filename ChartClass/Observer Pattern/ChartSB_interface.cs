@@ -7,7 +7,7 @@ using static ChartClass.Observer_Pattern.Observer_interface;
 
 namespace ChartClass.Observer_Pattern
 {
-    internal class ChartSB_interface
+    public class ChartSB_interface
     {
         public interface Subject
         {
