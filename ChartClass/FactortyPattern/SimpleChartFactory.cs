@@ -69,7 +69,29 @@ namespace ChartClass
                 };
                 chart.name = "LineChart";
             }
-
+            else if (type.Equals("RowChart"))
+            {
+                chart = new CustomChart()
+                {
+                    new RowSeries()
+                    {
+                        Title = "aaa",
+                        Values = new ChartValues<double> {3,4,5,6,7}
+                    },
+                    new RowSeries()
+                    {
+                        Title = "bbb",
+                        Values = new ChartValues<double> {1,7,4,10,15}
+                    },
+                    new RowSeries()
+                    {
+                        Title = "ccc",
+                        Values = new ChartValues<double> {10,8,4,2,1}
+                    }
+                };
+                chart.name = "RowChart";
+            }
+            
             return chart;
         }
     }

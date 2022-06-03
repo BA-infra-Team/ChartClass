@@ -36,20 +36,32 @@ namespace ChartClass.Observer_Pattern
 				{
 					new PieSeries()
 					{
-						Title = "hi33",
-						Values = new ChartValues<double>{3, value},
+						Title = "test1",
+						Values = new ChartValues<double>{31, value},
 						DataLabels = true,
                         //LabelPoint = labelPoint,
                         Visibility = System.Windows.Visibility.Visible,
+						
 					},
 
 					new PieSeries()
 					{
-						Title = "hi211",
-						Values = new ChartValues<double>{3, value},
+						Title = "test2",
+						Values = new ChartValues<double>{35, value},
 						DataLabels = true,
                         //LabelPoint = labelPoint,
                         Visibility = System.Windows.Visibility.Visible,
+						Fill = System.Windows.Media.Brushes.YellowGreen,
+					},
+					
+					new PieSeries()
+					{
+						Title = "test3",
+						Values = new ChartValues<double>{35, value},
+						DataLabels = true,
+                        //LabelPoint = labelPoint,
+                        Visibility = System.Windows.Visibility.Visible,
+						Fill = System.Windows.Media.Brushes.OrangeRed,
 					}
 				};
                 //obform.elementHost1.Dock = DockStyle.Fill;
@@ -60,7 +72,7 @@ namespace ChartClass.Observer_Pattern
                 //obform.Show();
 
                 obform.panel1.Location = new Point(0, 0);
-                obform.panel1.Size = new Size(200, 200);
+                obform.panel1.Size = new Size(300, 300);
                 piechart1.Series = chart;
                 obform.elementHost1.Child = piechart1;
 
@@ -94,22 +106,22 @@ namespace ChartClass.Observer_Pattern
 				{
 					new LineSeries()
 					{
-						Title = "aaa",
+						Title = "Linechart1",
 						Values = new ChartValues<double> {3,4,5,6,7, value}
 					},
 					new LineSeries()
 					{
-						Title = "bbb",
+						Title = "Linechart2",
 						Values = new ChartValues<double> {1,7,4,10,15, value }
 					},
 					new LineSeries()
 					{
-						Title = "ccc",
-						Values = new ChartValues<double> {10,8,4,2,1, value }
+						Title = "Linechart3",
+						Values = new ChartValues<double> {10,8,4, value, 2, 1 }
 					}
 				};
-				obform.panel2.Location = new Point(200, 200);
-				obform.panel2.Size = new Size(200, 200);
+				obform.panel2.Location = new Point(320, 320);
+				obform.panel2.Size = new Size(300, 300);
 				catersianchart1.Series = chart;
 				obform.elementHost2.Child = catersianchart1;
 
@@ -125,7 +137,6 @@ namespace ChartClass.Observer_Pattern
 		{
 			public CartesianChart catersianchart = new CartesianChart();
 
-			//public RowSeries rowchart = new RowSeries();
 			private CustomChart chart;
 			ConcreteSubject _subject;
 			public Rchart(ConcreteSubject subject)
@@ -143,22 +154,22 @@ namespace ChartClass.Observer_Pattern
 					new RowSeries()
 					{
 						Title = "eee",
-						Values = new ChartValues<double> {3, 4, value, 5 }
+						Values = new ChartValues<double> {30, 40, value, 5 }
 					},
                     new RowSeries()
                     {
                         Title = "fff",
-                        Values = new ChartValues<double> {1,7,4,10,15, value }
+                        Values = new ChartValues<double> {10,70,4,10,15, value }
                     },
                     new RowSeries()
                     {
                         Title = "ggg",
-                        Values = new ChartValues<double> {10,8,4,2,1, value }
+                        Values = new ChartValues<double> {10,80,40,2,1, value }
                     }
                 };
 
-				obform.panel3.Location = new Point(200, 0);
-				obform.panel3.Size = new Size(200, 200);
+				obform.panel3.Location = new Point(310, 0);
+				obform.panel3.Size = new Size(300, 300);
 				catersianchart.Series = chart;
 				obform.elementHost3.Child = catersianchart;
 

@@ -32,16 +32,16 @@ namespace ChartClass
 
 
             //ConcreteSB concretesb = new ConcreteSB();
-            ConcreteSubject concreteSubject = new ConcreteSubject();
-            //PieChart Obser;
-            PChart observerA = new PChart(concreteSubject);
-            LChart observerB = new LChart(concreteSubject);
-            Rchart observerC = new Rchart(concreteSubject);
-            concreteSubject.setValue(50);
-            //concreteSubject.removeObserver(observerA);
-            //concreteSubject.setValue(100);
-            //concreteSubject.registerObserver(observerA);
-            //concreteSubject.setValue(30);
+            //ConcreteSubject concreteSubject = new ConcreteSubject();
+            ////PieChart Obser;
+            //PChart observerA = new PChart(concreteSubject);
+            //LChart observerB = new LChart(concreteSubject);
+            //Rchart observerC = new Rchart(concreteSubject);
+            //concreteSubject.setValue(50);
+            ////concreteSubject.removeObserver(observerA);
+            ////concreteSubject.setValue(100);
+            ////concreteSubject.registerObserver(observerA);
+            ////concreteSubject.setValue(30);
 
 
         }
