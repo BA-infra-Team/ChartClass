@@ -54,32 +54,21 @@ namespace ChartClass
                     new LineSeries()
                     {
                         Title = "aaa",
-                        Values = new ChartValues<double> {3,4,5,6,7}
+                        Values = new ChartValues<double> {30,40,50,6,7}
                     },
                     new LineSeries()
                     {
                         Title = "bbb",
-                        Values = new ChartValues<double> {1,7,4,10,15}
+                        Values = new ChartValues<double> {10,70,4,10,15}
                     },
                     new LineSeries()
                     {
                         Title = "ccc",
-                        Values = new ChartValues<double> {10,8,4,2,1}
+                        Values = new ChartValues<double> {100,8,4,2,1}
                     }
                 };
                 chart.name = "LineChart";
             }
-            //if (type.Equals("PieChart"))
-            //{
-            //    chart.custompie = new CustomPieChart();
-            //}
-            //else if (type.Equals("LineChart"))
-            //{
-            //    chart.customline = new CustomLineChart();
-            //    //chart = new CustomLineChart();
-            //}
-
-            //chart.Show(Form1 form);
 
             return chart;
         }

@@ -9,20 +9,23 @@ namespace ChartClass
 {
     public partial class StrategyForm : Form
     {
-        public CustomPieChart piechart = new CustomPieChart();
+        //public CustomPieChart piechart = new CustomPieChart();
         public ElementHost elementHost = new ElementHost();
+        public static CustomChart chart = new CustomChart();
         public StrategyForm()
         {
             InitializeComponent();
 
-            //piechart.setColorBehavior(new DefaultColor_A());
-            //piechart.setDataBehavior(new AddData_Single());
-            piechart.setColorBehavior(new DefaultColor_B());
-            piechart.setDataBehavior(new AddData_Multiple());
-            piechart.performDataAdd(piechart.Series);
-            piechart.performChangeColor(piechart.Series);
+            // 팩토리 + 전략패턴
+            SimpleChartFactory simpleChartFactory = new SimpleChartFactory();
+            ChartStore chartstore = new ChartStore(simpleChartFactory);
+            chart = chartstore.orderChart("LineChart");
+            chart.setColorBehavior(new DefaultColor_A());
+            chart.setDataBehavior(new AddData_Single());
+            chart.performDataAdd(chart,chart.name);
+            chart.performChangeColor(chart,chart.name);
+            chart.Show(this);
 
-            piechart.Show(this);
         }
     }
 }

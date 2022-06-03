@@ -12,10 +12,9 @@ namespace ChartClass.StrategyPattern.BehaviorClass
 {
     public class AddData_Multiple : DataBehavior
     {
-        public void AddData(SeriesCollection seriesCollection)
+        public void AddData(SeriesCollection seriesCollection, string name)
         {
             var rand = new Random();
-
             var value = new ChartValues<double>();
 
             for (int i = 0; i < 50; i++)
@@ -23,14 +22,29 @@ namespace ChartClass.StrategyPattern.BehaviorClass
                 value.Add(rand.Next(1, 2000));
             }
 
-
-            for (int i = 0; i < value.Count; i++)
+            if (name != null)
             {
-                seriesCollection.Add(new PieSeries()
+                if (name == "PieChart")
                 {
-                    Title = "",
-                    Values = new ChartValues<double>() { value[i] },
-                }); ; 
+                    for (int i = 0; i < value.Count; i++)
+                    {
+                        seriesCollection.Add(new PieSeries()
+                        {
+                            Title = "",
+                            Values = new ChartValues<double>() { value[i] },
+                        }); ;
+                    }
+                }
+                else if (name == "LineChart")
+                {
+                    for (int i = 0; i < seriesCollection.Count; i++)
+                    {
+                        for(int j=0; j< value.Count; j++)
+                        {
+                            seriesCollection[i].Values.Add(value[j]);
+                        }
+                    }
+                }
             }
         }
     }

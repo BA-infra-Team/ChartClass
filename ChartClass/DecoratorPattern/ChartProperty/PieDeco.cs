@@ -18,7 +18,6 @@ namespace ChartClass.DecoratorPattern.ChartProperty
         {
             return description;
         }
-
         public override List<double> getValue()
         {
             List<double> values = new List<double> { 3, 4, 5, 6 };

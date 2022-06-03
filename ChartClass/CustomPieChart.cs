@@ -106,22 +106,22 @@ namespace ChartClass
             this.Visibility = System.Windows.Visibility.Visible;
         }
 
-        public void performChangeColor(SeriesCollection seriesCollection)
-        {
-            colorBehavior.ChangeDefaultColor(seriesCollection);
-        }
-        public void performDataAdd(SeriesCollection seriesCollection)
-        {
-            dataBehavior.AddData(seriesCollection);
-        }
-        public void setColorBehavior(ColorBehavior cb)
-        {
-            colorBehavior = cb;
-        }
+        //public void performChangeColor(SeriesCollection seriesCollection)
+        //{
+        //    colorBehavior.ChangeDefaultColor(seriesCollection);
+        //}
+        //public void performDataAdd(SeriesCollection seriesCollection)
+        //{
+        //    dataBehavior.AddData(seriesCollection);
+        //}
+        //public void setColorBehavior(ColorBehavior cb)
+        //{
+        //    colorBehavior = cb;
+        //}
 
-        public void setDataBehavior(DataBehavior db)
-        {
-            dataBehavior = db;
-        }
+        //public void setDataBehavior(DataBehavior db)
+        //{
+        //    dataBehavior = db;
+        //}
     }
 }

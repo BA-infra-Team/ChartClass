@@ -11,6 +11,6 @@ namespace ChartClass.StrategyPattern.BehaviorInterface
 {
     public interface DataBehavior
     {
-        void AddData(SeriesCollection seriesCollection);
+        void AddData(SeriesCollection seriesCollection, string name);
     }
 }

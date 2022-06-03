@@ -31,19 +31,6 @@ namespace ChartClass.DecoratorPattern.ChartProperty
             value.AddRange(values);
 
             return value;
-
-            //ChartValues<double> chvalues2 = new ChartValues<double>();
-            //for (int i = 0; i < chvalues.Count; i++)
-            //{
-            //    chvalues2.Add(chvalues[i]);
-            //}
-            //for (int i = 0; i < chvalues.Count; i++)
-            //{
-            //    chartseries.getValue().Add(chvalues[i]);
-            //}
-            //double values = 8;
-            //values.Append(values);
-            //return values.Add(chartseries.getValue());
         }
 
     }

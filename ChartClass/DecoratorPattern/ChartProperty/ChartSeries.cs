@@ -16,14 +16,13 @@ namespace ChartClass.cSeries
 {
     public abstract class ChartSeries : LiveCharts.Wpf.Series
     {
-        private ColorBehavior colorBehavior;
-        private DataBehavior dataBehavior;
 
         public string description = "제목 없음";
 
         public List<double> value = new List<double>();
         public abstract string getTitle();
         public abstract List<double> getValue();
+
         //public abstract string getSeries();
         //public abstract Brush getFill();
         //public abstract Func<ChartPoint, string> getLabelPoint();
@@ -37,23 +36,5 @@ namespace ChartClass.cSeries
         {
 
         }
-        
-        //public void performChangeColor(ChartSeries chartseries)
-        //{
-        //    colorBehavior.ChangeDefaultColor(this);
-        //}
-        //public void performDataAdd(ChartSeries chartseries)
-        //{
-        //    dataBehavior.AddData(this);
-        //}
-        //public void setChangeColorBehavior(ColorBehavior cb)
-        //{
-        //    colorBehavior = cb;
-        //}
-
-        //public void setDataAddBehavior(DataBehavior db)
-        //{
-        //    dataBehavior = db;
-        //}
     }
 }

@@ -12,6 +12,6 @@ namespace ChartClass.StrategyPattern.BehaviorInterface
 {
     public interface ColorBehavior
     {
-        void ChangeDefaultColor(SeriesCollection seriesCollection);
+        void ChangeDefaultColor(SeriesCollection seriesCollection, string name);
     }
 }

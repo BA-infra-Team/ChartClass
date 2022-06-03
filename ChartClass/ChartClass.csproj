@@ -94,13 +94,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include=".cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include=".Designer.cs">
-      <DependentUpon>.cs</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Observer Pattern\ChartSB_interface.cs" />
     <Compile Include="Observer Pattern\CObservers.cs" />
     <Compile Include="Observer Pattern\ConcreteSB.cs" />
@@ -142,9 +135,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include=".resx">
-      <DependentUpon>.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ObserverForm.resx">
       <DependentUpon>ObserverForm.cs</DependentUpon>

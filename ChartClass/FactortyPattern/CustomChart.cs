@@ -6,6 +6,7 @@ using LiveCharts.Wpf;
 using LiveCharts.Wpf.Charts.Base;
 using System;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace ChartClass
 {
@@ -47,6 +48,31 @@ namespace ChartClass
                 {
                     piechart.Series = this;
                     form.elementHost.Child = piechart;
+
+                }
+                else if (name == "LineChart")
+                {
+                    catersianchart.Series = this;
+                    form.elementHost.Child = catersianchart;
+                }
+            }
+            form.Controls.Add(form.elementHost);
+        }
+
+        public void Show(StrategyForm form)
+        {
+            form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
+            form.elementHost.Location = new System.Drawing.Point(0, 0);
+            form.elementHost.Name = "elementHost";
+            form.elementHost.Size = new System.Drawing.Size(984, 486);
+            form.elementHost.TabIndex = 0;
+            form.elementHost.Text = "elementHost";
+            if (name != null)
+            {
+                if (name == "PieChart")
+                {
+                    piechart.Series = this;
+                    form.elementHost.Child = piechart;
                 }
                 else if (name == "LineChart")
                 {
@@ -65,22 +91,22 @@ namespace ChartClass
         {
             name = Chartname;
         }
-        //public void performChangeColor()
-        //{
-        //    colorBehavior.ChangeDefaultColor();
-        //}
-        //public void performDataAdd()
-        //{
-        //    dataBehavior.AddData();
-        //}
-        //public void setFlyBehavior(ColorBehavior cb)
-        //{
-        //    colorBehavior = cb;
-        //}
+        public void performChangeColor(SeriesCollection seriesCollection, string name)
+        {
+            colorBehavior.ChangeDefaultColor(seriesCollection, name);
+        }
+        public void performDataAdd(SeriesCollection seriesCollection, string name)
+        {
+            dataBehavior.AddData(seriesCollection, name);
+        }
+        public void setColorBehavior(ColorBehavior cb)
+        {
+            colorBehavior = cb;
+        }
 
-        //public void setQuackBehavior(DataBehavior db)
-        //{
-        //    dataBehavior = db;
-        //}
+        public void setDataBehavior(DataBehavior db)
+        {
+            dataBehavior = db;
+        }
     }
 }

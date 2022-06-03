@@ -13,16 +13,29 @@ namespace ChartClass.StrategyPattern.BehaviorClass
 {
     public class AddData_Single : DataBehavior
     {
-        public void AddData(SeriesCollection seriesCollection)
+        public void AddData(SeriesCollection seriesCollection, string name)
         {
             Random random_value = new Random();
             var value = random_value.Next(50, 400);
 
-            seriesCollection.Add(new PieSeries
+            if (name != null)
             {
-                Title = "hi3",
-                Values = new ChartValues<double> { value }
-            });
+                if (name == "PieChart")
+                {
+                    seriesCollection.Add(new PieSeries
+                    {
+                        Title = "hi3",
+                        Values = new ChartValues<double> { value }
+                    });
+                }
+                else if (name == "LineChart")
+                {
+                    for (int i=0; i<seriesCollection.Count; i++)
+                    {
+                        seriesCollection[i].Values.Add((double)random_value.Next(50, 400));
+                    }
+                }
+            }
         }
     }
 }

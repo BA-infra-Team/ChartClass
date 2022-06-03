@@ -28,11 +28,5 @@ namespace ChartClass
 
             return chart;
         }
-
-        // 기타 메소드 
-        public void show(Form1 form)
-        {
-
-        }
     }
 }
