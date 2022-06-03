@@ -28,11 +28,7 @@ namespace ChartClass.StrategyPattern.BehaviorClass
                 {
                     for (int i = 0; i < value.Count; i++)
                     {
-                        seriesCollection.Add(new PieSeries()
-                        {
-                            Title = "",
-                            Values = new ChartValues<double>() { value[i] },
-                        }); ;
+                        seriesCollection.Add(new cPieSeries("", value[i]));
                     }
                 }
                 else if (name == "LineChart")

@@ -22,11 +22,7 @@ namespace ChartClass.StrategyPattern.BehaviorClass
             {
                 if (name == "PieChart")
                 {
-                    seriesCollection.Add(new PieSeries
-                    {
-                        Title = "hi3",
-                        Values = new ChartValues<double> { value }
-                    });
+                    seriesCollection.Add(new cPieSeries("hi3", value));
                 }
                 else if (name == "LineChart")
                 {

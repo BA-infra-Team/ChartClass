@@ -1,20 +1,11 @@
 ﻿using LiveCharts;
-using LiveCharts.Definitions.Series;
 using LiveCharts.Wpf;
 using System;
-using System.Collections.Generic;
-using System.Windows.Forms.Integration;
-using System.Windows.Forms;
-using ChartClass.StrategyPattern.BehaviorInterface;
-using System.Windows.Media;
 
 namespace ChartClass
 {
     public class CustomPieChart : PieChart
     {
-        private ColorBehavior colorBehavior;
-        private DataBehavior dataBehavior;
-
         public CustomPieChart()
         {
             Func<ChartPoint, string> labelPoint = chartPoint =>
@@ -105,23 +96,5 @@ namespace ChartClass
         {
             this.Visibility = System.Windows.Visibility.Visible;
         }
-
-        //public void performChangeColor(SeriesCollection seriesCollection)
-        //{
-        //    colorBehavior.ChangeDefaultColor(seriesCollection);
-        //}
-        //public void performDataAdd(SeriesCollection seriesCollection)
-        //{
-        //    dataBehavior.AddData(seriesCollection);
-        //}
-        //public void setColorBehavior(ColorBehavior cb)
-        //{
-        //    colorBehavior = cb;
-        //}
-
-        //public void setDataBehavior(DataBehavior db)
-        //{
-        //    dataBehavior = db;
-        //}
     }
 }

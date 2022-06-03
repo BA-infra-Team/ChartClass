@@ -1,4 +1,5 @@
-﻿using LiveCharts.Wpf;
+﻿using LiveCharts;
+using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,8 @@ namespace ChartClass.cSeries
     {
         public cPieSeries(string _title, double _value)
         {
-
+            this.Title = _title;
+            this.Values = new ChartValues<double> { _value };
         }
     }
 }

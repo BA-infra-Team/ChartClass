@@ -11,19 +11,40 @@ namespace ChartClass.Series
 {
     public class cBasePieSeries : ChartSeries
     {
+        public PieChart piechart = new PieChart();
+        public SeriesCollection seriesCollection;
         public cBasePieSeries()
         {
-            description = "나는 파이차트입니다.";
-        }
-        public override string getTitle()
-        {
-            return description;
+            SeriesName = "PieChart";
         }
 
-        public override List<double> getValue()
+        public override SeriesCollection createChart()
         {
-            List<double> values = new List<double> { 3, 4, 5, 6 };
-            return values;
+            seriesCollection = new SeriesCollection()
+            {
+                new cPieSeries("aaa",3),
+                new cPieSeries("bbb",5),
+                new cPieSeries("ccc",6)
+            };
+            return seriesCollection;
+        }
+
+        public override string getSeriesName()
+        {
+            return SeriesName;
+        }
+
+        public override void Show(DecoratorForm form)
+        {
+            piechart.Series = this.seriesCollection;
+            form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
+            form.elementHost.Location = new System.Drawing.Point(0, 0);
+            form.elementHost.Name = "elementHost";
+            form.elementHost.Size = new System.Drawing.Size(984, 486);
+            form.elementHost.TabIndex = 0;
+            form.elementHost.Text = "elementHost";
+            form.elementHost.Child = piechart;
+            form.Controls.Add(form.elementHost);
         }
     }
 }

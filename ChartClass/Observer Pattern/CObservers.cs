@@ -32,7 +32,7 @@ namespace ChartClass.Observer_Pattern
 			}
 			public void update(int value)
 			{
-                chart = new CustomChart()
+				chart = new CustomChart()
 				{
 					new PieSeries()
 					{
@@ -64,12 +64,6 @@ namespace ChartClass.Observer_Pattern
 						Fill = System.Windows.Media.Brushes.OrangeRed,
 					}
 				};
-                //obform.elementHost1.Dock = DockStyle.Fill;
-                //obform.panel1.Location = new Point(0, 0);
-                //obform.panel1.Size = new Size(200, 200);
-                //piechart1.Series = chart;
-                //obform.elementHost1.Child = piechart1;
-                //obform.Show();
 
                 obform.panel1.Location = new Point(0, 0);
                 obform.panel1.Size = new Size(300, 300);

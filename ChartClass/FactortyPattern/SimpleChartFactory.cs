@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
+using ChartClass.cSeries;
+using ChartClass.Series;
 
 namespace ChartClass
 {
@@ -24,23 +26,8 @@ namespace ChartClass
                 //CustomChart chart = null;
                 chart = new CustomChart()
                 {
-                    new PieSeries()
-                    {
-                        Title = "hi",
-                        Values = new ChartValues<double>{3},
-                        DataLabels = true,
-                        //LabelPoint = labelPoint,
-                        Visibility = System.Windows.Visibility.Visible,
-                    },
-
-                    new PieSeries()
-                    {
-                        Title = "hi2",
-                        Values = new ChartValues<double>{3},
-                        DataLabels = true,
-                        //LabelPoint = labelPoint,
-                        Visibility = System.Windows.Visibility.Visible,
-                    }
+                    new cPieSeries("hi",3),
+                    new cPieSeries("hi2",5)                    
                 };
                 chart.name = "PieChart";
 
@@ -51,21 +38,9 @@ namespace ChartClass
                 //chart = new SeriesCollection
                 chart = new CustomChart()
                 {
-                    new LineSeries()
-                    {
-                        Title = "aaa",
-                        Values = new ChartValues<double> {30,40,50,6,7}
-                    },
-                    new LineSeries()
-                    {
-                        Title = "bbb",
-                        Values = new ChartValues<double> {10,70,4,10,15}
-                    },
-                    new LineSeries()
-                    {
-                        Title = "ccc",
-                        Values = new ChartValues<double> {100,8,4,2,1}
-                    }
+                    new cLineSeries("aaa",new ChartValues<double>{30,40,50,66,7}),
+                    new cLineSeries("bbb",new ChartValues<double>{10,70,4,10,15}),
+                    new cLineSeries("ccc",new ChartValues<double>{100,8,4,2,1}),
                 };
                 chart.name = "LineChart";
             }
@@ -73,21 +48,9 @@ namespace ChartClass
             {
                 chart = new CustomChart()
                 {
-                    new RowSeries()
-                    {
-                        Title = "aaa",
-                        Values = new ChartValues<double> {3,4,5,6,7}
-                    },
-                    new RowSeries()
-                    {
-                        Title = "bbb",
-                        Values = new ChartValues<double> {1,7,4,10,15}
-                    },
-                    new RowSeries()
-                    {
-                        Title = "ccc",
-                        Values = new ChartValues<double> {10,8,4,2,1}
-                    }
+                    new cRowSeries("aaa",new ChartValues<double>{3,4,5,6,7}),
+                    new cRowSeries("bbb",new ChartValues<double>{1,7,4,10,15}),
+                    new cRowSeries("ccc",new ChartValues<double>{10,8,4,2,1}),
                 };
                 chart.name = "RowChart";
             }

@@ -76,8 +76,7 @@
     <Compile Include="DecoratorForm.Designer.cs">
       <DependentUpon>DecoratorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DecoratorPattern\ChartProperty\LineDeco.cs" />
-    <Compile Include="DecoratorPattern\ChartProperty\PieDeco.cs" />
+    <Compile Include="DecoratorPattern\Decorator\FillDeco.cs" />
     <Compile Include="FactortyPattern\CustomChart.cs" />
     <Compile Include="FactortyPattern\ChartStore.cs" />
     <Compile Include="CustomPieChart.cs" />

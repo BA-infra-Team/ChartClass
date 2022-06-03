@@ -12,21 +12,40 @@ namespace ChartClass.Series
 {
     public class cBaseLineSeries : ChartSeries
     {
+        public CartesianChart catersianchart = new CartesianChart();
+        public SeriesCollection seriesCollection;
         public cBaseLineSeries()
         {
-            description = "나는 라인차트입니다.";
+            SeriesName = "LineChart";
         }
 
-        public override string getTitle()
+        public override SeriesCollection createChart()
         {
-            return description;
+            seriesCollection = new SeriesCollection()
+            {
+                new cLineSeries("aaa",new ChartValues<double> {3,4,5,6}),
+                new cLineSeries("bbb",new ChartValues<double> {7,8,9,10}),
+                new cLineSeries("ccc",new ChartValues<double> {11,12,13,14})
+            };
+            return seriesCollection;
         }
 
-        public override List<double> getValue()
+        public override string getSeriesName()
         {
-            List<double> values = new List<double> { 3,4,5,6};
-            value.AddRange(values);
-            return value;
+            return SeriesName;
+        }
+
+        public override void Show(DecoratorForm form)
+        {
+            catersianchart.Series = this.seriesCollection;
+            form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
+            form.elementHost.Location = new System.Drawing.Point(0, 0);
+            form.elementHost.Name = "elementHost";
+            form.elementHost.Size = new System.Drawing.Size(984, 486);
+            form.elementHost.TabIndex = 0;
+            form.elementHost.Text = "elementHost";
+            form.elementHost.Child = catersianchart;
+            form.Controls.Add(form.elementHost);
         }
     }
 }

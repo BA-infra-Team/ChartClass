@@ -14,27 +14,17 @@ using ChartClass.StrategyPattern.BehaviorInterface;
 
 namespace ChartClass.cSeries
 {
-    public abstract class ChartSeries : LiveCharts.Wpf.Series
+    public abstract class ChartSeries : SeriesCollection
     {
+        public string SeriesName = "제목 없음";
+        public abstract SeriesCollection createChart();
+        public abstract void Show(DecoratorForm form);
 
-        public string description = "제목 없음";
-
-        public List<double> value = new List<double>();
-        public abstract string getTitle();
-        public abstract List<double> getValue();
-
-        //public abstract string getSeries();
-        //public abstract Brush getFill();
-        //public abstract Func<ChartPoint, string> getLabelPoint();
-        //public abstract bool getDataLabels();
-        //public abstract Geometry getPointGeometry();
-        //public abstract Brush getStroke();
-        //public abstract double getStrokeThickness();
-        //public abstract double getOpacity();
-
+        public abstract string getSeriesName();
         public ChartSeries()
         {
-
+            
         }
+
     }
 }

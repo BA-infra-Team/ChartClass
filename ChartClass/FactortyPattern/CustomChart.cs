@@ -5,6 +5,7 @@ using LiveCharts.Definitions.Charts;
 using LiveCharts.Wpf;
 using LiveCharts.Wpf.Charts.Base;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Windows.Media;
 
@@ -37,9 +38,9 @@ namespace ChartClass
         public void Show(FactoryMethod form)
         {
             form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
-            form.elementHost.Location = new System.Drawing.Point(0, 0);
+            form.elementHost.Location = new System.Drawing.Point(100, 100);
             form.elementHost.Name = "elementHost";
-            form.elementHost.Size = new System.Drawing.Size(984, 486);
+            form.elementHost.Size = new System.Drawing.Size(800, 500);
             form.elementHost.TabIndex = 0;
             form.elementHost.Text = "elementHost";
             if (name != null)
@@ -72,6 +73,15 @@ namespace ChartClass
                 if (name == "PieChart")
                 {
                     piechart.Series = this;
+                    //List<SolidColorBrush> brush = new List<SolidColorBrush>();
+                    //brush.Add(new SolidColorBrush(Colors.Red));
+                    //brush.Add(new SolidColorBrush(Colors.Blue));
+                    //brush.Add(new SolidColorBrush(Colors.Black));
+                    //brush.Add(new SolidColorBrush(Colors.Yellow));
+                    //for (int i=0; i<piechart.Series.Count;i++)
+                    //{
+                    //    ((PieSeries)piechart.Series[i]).Fill = brush[i];
+                    //}
                     form.elementHost.Child = piechart;
                 }
                 else if (name == "LineChart")

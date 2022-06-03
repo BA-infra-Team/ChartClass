@@ -44,10 +44,10 @@ namespace ChartClass.StrategyPattern.BehaviorClass
                     for (int i = 0; i < seriesCollection.Count; i++)
                     {
                         Random rnd = new Random();
-                        //int c = (PieSlice)seriesCollection[i].Pie
                         DefaultColorSet randomBar = (DefaultColorSet)values.GetValue(rnd.Next(values.Length));
                         SolidColorBrush someColor = colors[randomBar];
                         ((PieSeries)seriesCollection[i]).Fill = someColor;
+                        //((PieSeries)piechart.Series[i]).Fill = someColor;
                     }
                 }
                 else if (name == "LineChart")

@@ -29,8 +29,6 @@ namespace ChartClass
         {
             InitializeComponent();
             //custom.Show(this);
-
-
             //ConcreteSB concretesb = new ConcreteSB();
             //ConcreteSubject concreteSubject = new ConcreteSubject();
             ////PieChart Obser;

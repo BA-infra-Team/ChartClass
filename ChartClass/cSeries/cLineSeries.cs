@@ -10,10 +10,11 @@ namespace ChartClass.cSeries
 {
     public class cLineSeries : LineSeries
     {
-        public cLineSeries(string _title, double _value)
+        //new ChartValues<double>
+        public cLineSeries(string _title, ChartValues<double> _value)
         {
             this.Title = _title;
-            this.Values = new ChartValues<double> { _value };
+            this.Values = _value;
         }
     }
 }

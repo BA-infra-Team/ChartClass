@@ -19,9 +19,10 @@ namespace ChartClass
             // 팩토리 + 전략패턴
             SimpleChartFactory simpleChartFactory = new SimpleChartFactory();
             ChartStore chartstore = new ChartStore(simpleChartFactory);
-            chart = chartstore.orderChart("LineChart");
+            chart = chartstore.orderChart("PieChart");
             chart.setColorBehavior(new DefaultColor_A());
-            chart.setDataBehavior(new AddData_Single());
+            chart.setColorBehavior(new DefaultColor_B());
+            chart.setDataBehavior(new AddData_Multiple());
             chart.performDataAdd(chart,chart.name);
             chart.performChangeColor(chart,chart.name);
             chart.Show(this);

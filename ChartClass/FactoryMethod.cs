@@ -32,21 +32,21 @@ namespace ChartClass
 
             SimpleChartFactory simpleChartFactory = new SimpleChartFactory();
             ChartStore chartstore = new ChartStore(simpleChartFactory);
-            chart = chartstore.orderChart("RowChart");
+            chart = chartstore.orderChart("PieChart");
             chart.Show(this);
 
 
-            //Observer Pattern
+            ////Observer Pattern
             ConcreteSubject concreteSubject = new ConcreteSubject();
             //PieChart Obser;
             PChart observerA = new PChart(concreteSubject);
             LChart observerB = new LChart(concreteSubject);
             Rchart observerC = new Rchart(concreteSubject);
             concreteSubject.setValue(50);
-            //concreteSubject.removeObserver(observerA);
-            //concreteSubject.setValue(100);
-            //concreteSubject.registerObserver(observerA);
-            //concreteSubject.setValue(30);
+            concreteSubject.removeObserver(observerA);
+            concreteSubject.setValue(100);
+            concreteSubject.registerObserver(observerA);
+            concreteSubject.setValue(30);
 
         }
 
