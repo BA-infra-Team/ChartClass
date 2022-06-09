@@ -16,7 +16,7 @@ namespace ChartClass
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdapterForm());
+            Application.Run(new FactoryMethod());
         }
     }
 }

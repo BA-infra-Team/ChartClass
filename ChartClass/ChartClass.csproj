@@ -60,6 +60,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TemplateMethod Pattern\AbChart.cs" />
     <Compile Include="AdapterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +78,9 @@
     <Compile Include="Chart\cRowChart.cs" />
     <Compile Include="Chart\cStackedArea.cs" />
     <Compile Include="Chart\cStackedColumn.cs" />
+    <Compile Include="TemplateMethod Pattern\concrete_Line.cs" />
+    <Compile Include="TemplateMethod Pattern\concrete_Pie.cs" />
+    <Compile Include="TemplateMethod Pattern\concrete_Row.cs" />
     <Compile Include="cSeries\cLineSeries.cs" />
     <Compile Include="cSeries\cPieSeries.cs" />
     <Compile Include="DecoratorForm.cs">

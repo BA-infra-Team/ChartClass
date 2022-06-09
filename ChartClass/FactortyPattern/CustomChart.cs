@@ -42,10 +42,10 @@ namespace ChartClass
         }
         public void Show(FactoryMethod form)
         {
-            form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
+            //form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
             form.elementHost.Location = new System.Drawing.Point(100, 100);
             form.elementHost.Name = "elementHost";
-            form.elementHost.Size = new System.Drawing.Size(800, 500);
+            form.elementHost.Size = new System.Drawing.Size(300, 300);
             form.elementHost.TabIndex = 0;
             form.elementHost.Text = "elementHost";
             if (name != null)

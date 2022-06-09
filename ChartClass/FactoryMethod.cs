@@ -1,8 +1,12 @@
-﻿using System;
+﻿using ChartClass.TemplateMethod_Pattern;
+using System;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 using static ChartClass.Observer_Pattern.CObservers;
 using static ChartClass.Observer_Pattern.ConcreteSB;
+using static ChartClass.TemplateMethod_Pattern.concrete_Line;
+using static ChartClass.TemplateMethod_Pattern.concrete_Pie;
+using static ChartClass.TemplateMethod_Pattern.concrete_Row;
 
 namespace ChartClass
 {
@@ -42,11 +46,19 @@ namespace ChartClass
             PChart observerA = new PChart(concreteSubject);
             LChart observerB = new LChart(concreteSubject);
             Rchart observerC = new Rchart(concreteSubject);
-            concreteSubject.setValue(50);
-            concreteSubject.removeObserver(observerA);
-            concreteSubject.setValue(100);
-            concreteSubject.registerObserver(observerA);
-            concreteSubject.setValue(30);
+            //concreteSubject.setValue(50);
+            //concreteSubject.removeObserver(observerA);
+            //concreteSubject.setValue(100);
+            //concreteSubject.registerObserver(observerA);
+            //concreteSubject.setValue(30);
+
+            //TemplateMethod Pattern
+            AbChart abp = new Pie_Chart();
+            AbChart abl = new Line_Chart();
+            AbChart abr = new Row_Chart();
+            abp.draw();
+            abl.draw();
+            abr.draw();
 
         }
 
