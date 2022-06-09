@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Forms.Integration;
 using System.Windows.Media;
 using ChartClass.cSeries;
 using LiveCharts;
@@ -35,17 +37,17 @@ namespace ChartClass.Series
             return SeriesName;
         }
 
-        public override void Show(DecoratorForm form)
+        public override void Show(DecoratorForm form, ChartSeries chart, Panel panel, ElementHost elementHost)
         {
             catersianchart.Series = this.seriesCollection;
-            form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
-            form.elementHost.Location = new System.Drawing.Point(0, 0);
-            form.elementHost.Name = "elementHost";
-            form.elementHost.Size = new System.Drawing.Size(984, 486);
-            form.elementHost.TabIndex = 0;
-            form.elementHost.Text = "elementHost";
-            form.elementHost.Child = catersianchart;
-            form.Controls.Add(form.elementHost);
+            elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
+            elementHost.Location = new System.Drawing.Point(0, 0);
+            elementHost.Name = "elementHost";
+            elementHost.Size = new System.Drawing.Size(984, 486);
+            elementHost.TabIndex = 0;
+            elementHost.Text = "elementHost";
+            elementHost.Child = catersianchart;
+            panel.Controls.Add(elementHost);
         }
     }
 }

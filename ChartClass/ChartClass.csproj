@@ -89,7 +89,6 @@
     <Compile Include="DecoratorForm.Designer.cs">
       <DependentUpon>DecoratorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DecoratorPattern\ChartProperty\Class1.cs" />
     <Compile Include="DecoratorPattern\Decorator\FillDeco.cs" />
     <Compile Include="FacadeForm.cs">
       <SubType>Form</SubType>
@@ -152,6 +151,9 @@
     <Compile Include="StrategyPattern\BehaviorInterface\ZoomBehavior.cs" />
     <EmbeddedResource Include="AdapterForm.resx">
       <DependentUpon>AdapterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DecoratorForm.resx">
+      <DependentUpon>DecoratorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FactoryMethod.resx">
       <DependentUpon>FactoryMethod.cs</DependentUpon>

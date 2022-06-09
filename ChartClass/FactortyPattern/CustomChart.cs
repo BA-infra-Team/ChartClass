@@ -93,38 +93,35 @@ namespace ChartClass
             //form.Controls.Add(form.LeftPanel);
             panel.Controls.Add(elementhost);
         }
-        public void Show(StrategyForm form)
+        public void Show(StrategyForm form, CustomChart chart, Panel panel, ElementHost elementhost)
         {
-            form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
-            form.elementHost.Location = new System.Drawing.Point(0, 0);
-            form.elementHost.Name = "elementHost";
-            form.elementHost.Size = new System.Drawing.Size(984, 486);
-            form.elementHost.TabIndex = 0;
-            form.elementHost.Text = "elementHost";
+            elementhost.Dock = System.Windows.Forms.DockStyle.Fill;
+            elementhost.Location = new System.Drawing.Point(0, 0);
+            elementhost.Name = "elementHost";
+            elementhost.Size = new System.Drawing.Size(984, 486);
+            elementhost.TabIndex = 0;
+            elementhost.Text = "elementHost";
             if (name != null)
             {
                 if (name == "PieChart")
                 {
-                    piechart.Series = this;
-                    form.elementHost.Child = piechart;
+                    piechart.Series = chart;
+                    elementhost.Child = piechart;
                 }
                 else if (name == "LineChart")
                 {
-                    catersianchart.Series = this;
-                    form.elementHost.Child = catersianchart;
+                    catersianchart.Series = chart;
+                    elementhost.Child = catersianchart;
                 }
-                else if(name == "RowChart")
+                else if (name == "RowChart")
                 {
-                    catersianchart.Series = this;
-                    form.elementHost.Child = catersianchart;
+                    catersianchart.Series = chart;
+                    elementhost.Child = catersianchart;
                 }
             }
-            form.Controls.Add(form.elementHost);
+            //form.Controls.Add(form.LeftPanel);
+            panel.Controls.Add(elementhost);
         }
-        //public abstract void Hide();
-        //public abstract void Add();
-        //public abstract void Delete();    
-        //public abstract void Show_All();
 
         public virtual CustomChart request(CustomChart chart)
         {

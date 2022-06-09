@@ -10,6 +10,7 @@ namespace ChartClass.StrategyPattern.BehaviorClass
 {
     public class DefaultColor_B : ColorBehavior
     {
+        PieChart piechart = new PieChart();
         enum DefaultColorSet
         {
             Green,   // 0
@@ -32,6 +33,7 @@ namespace ChartClass.StrategyPattern.BehaviorClass
         public void ChangeDefaultColor(SeriesCollection seriesCollection, string name)
         {
             Array values = Enum.GetValues(typeof(DefaultColorSet));
+            Random rnd = new Random();
 
             if (name != null)
             {
@@ -39,18 +41,17 @@ namespace ChartClass.StrategyPattern.BehaviorClass
                 {
                     for (int i = 0; i < seriesCollection.Count; i++)
                     {
-                        //int c = (PieSlice)seriesCollection[i].Pie
-                        Random rnd = new Random();
                         DefaultColorSet randomBar = (DefaultColorSet)values.GetValue(rnd.Next(values.Length));
                         SolidColorBrush someColor = colors[randomBar];
-                        ((PieSeries)seriesCollection[i]).Fill = someColor;
+                        piechart.Series = seriesCollection;
+                        ((PieSeries)piechart.Series[i]).Fill = someColor;
+                        seriesCollection = piechart.Series;
                     }
                 }
                 else if (name == "LineChart")
                 {
                     for (int i = 0; i < seriesCollection.Count; i++)
                     {
-                        Random rnd = new Random();
                         DefaultColorSet randomBar = (DefaultColorSet)values.GetValue(rnd.Next(values.Length));
                         SolidColorBrush someColor = colors[randomBar];
                         ((LineSeries)seriesCollection[i]).Fill = someColor;

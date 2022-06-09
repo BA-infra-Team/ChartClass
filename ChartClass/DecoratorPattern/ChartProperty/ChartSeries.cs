@@ -11,6 +11,8 @@ using LiveCharts.Wpf.Charts.Base;
 using LiveCharts.Definitions.Series;
 using System.Windows.Media;
 using ChartClass.StrategyPattern.BehaviorInterface;
+using System.Windows.Forms;
+using System.Windows.Forms.Integration;
 
 namespace ChartClass.cSeries
 {
@@ -18,7 +20,7 @@ namespace ChartClass.cSeries
     {
         public string SeriesName = "제목 없음";
         public abstract SeriesCollection createChart();
-        public abstract void Show(DecoratorForm form);
+        public abstract void Show(DecoratorForm form, ChartSeries chart, Panel panel, ElementHost elementHost);
 
         public abstract string getSeriesName();
         public ChartSeries()

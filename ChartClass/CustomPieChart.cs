@@ -46,17 +46,17 @@ namespace ChartClass
             form.Controls.Add(form.elementHost);
         }
 
-        public void Show(StrategyForm form)
-        {
-            form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
-            form.elementHost.Location = new System.Drawing.Point(0, 0);
-            form.elementHost.Name = "elementHost";
-            form.elementHost.Size = new System.Drawing.Size(984, 486);
-            form.elementHost.TabIndex = 0;
-            form.elementHost.Text = "elementHost";
-            form.elementHost.Child = this;
-            form.Controls.Add(form.elementHost);
-        }
+        //public void Show(StrategyForm form)
+        //{
+        //    form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
+        //    form.elementHost.Location = new System.Drawing.Point(0, 0);
+        //    form.elementHost.Name = "elementHost";
+        //    form.elementHost.Size = new System.Drawing.Size(984, 486);
+        //    form.elementHost.TabIndex = 0;
+        //    form.elementHost.Text = "elementHost";
+        //    form.elementHost.Child = this;
+        //    form.Controls.Add(form.elementHost);
+        //}
 
         // 차트 데이터 전체 삭제 
         public void All_Delete()

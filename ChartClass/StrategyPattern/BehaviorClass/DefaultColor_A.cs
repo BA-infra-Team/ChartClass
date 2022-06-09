@@ -61,7 +61,6 @@ namespace ChartClass.StrategyPattern.BehaviorClass
                     while (i < seriesCollection.Count)
                     //for (int i = 0; i < seriesCollection.Count; i++)
                     {
-                        //Random rnd = new Random();
                         DefaultColorSet randomBar = (DefaultColorSet)values.GetValue(rnd.Next(values.Length));
                         SolidColorBrush someColor = colors[randomBar];
                         ((LineSeries)seriesCollection[i]).Fill = someColor;
