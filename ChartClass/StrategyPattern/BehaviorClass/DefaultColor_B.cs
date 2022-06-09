@@ -58,6 +58,5 @@ namespace ChartClass.StrategyPattern.BehaviorClass
                 }
             }
         }
-
     }
 }

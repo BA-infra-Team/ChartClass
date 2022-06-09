@@ -15,11 +15,8 @@ namespace ChartClass
         public DecoratorForm()
         {
             InitializeComponent();
-            ChartSeries chartseries = new cBaseLineSeries(); // 3456
-            //chartseries.createChart();
-            //chartseries.Show(this);
-            chartseries = new FillDeco(chartseries);    // 78910
-
+            ChartSeries chartseries = new cBaseLineSeries();
+            chartseries = new FillDeco(chartseries); 
             chartseries.createChart();
             chartseries.Show(this);
 

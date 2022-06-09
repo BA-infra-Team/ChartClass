@@ -1,18 +1,14 @@
-﻿using ChartClass.StrategyPattern.BehaviorInterface;
+﻿using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LiveCharts;
 using System.Windows.Media;
-using LiveCharts.Wpf;
-using ChartClass.cSeries;
-using LiveCharts.Wpf.Points;
 
-namespace ChartClass.StrategyPattern.BehaviorClass
+namespace ChartClass.AdapterPattern
 {
-    public class DefaultColor_A : ColorBehavior
+    public class Adaptee
     {
         PieChart piechart = new PieChart();
         enum DefaultColorSet
@@ -24,50 +20,45 @@ namespace ChartClass.StrategyPattern.BehaviorClass
         }
 
         Dictionary<DefaultColorSet, System.Windows.Media.SolidColorBrush> colors = new Dictionary<DefaultColorSet, System.Windows.Media.SolidColorBrush>();
-        public DefaultColor_A()
+        public Adaptee()
         {
             colors.Add(DefaultColorSet.Red, new SolidColorBrush(Colors.Red) { Opacity = 0.15 });
             colors.Add(DefaultColorSet.Yellow, new SolidColorBrush(Colors.Yellow) { Opacity = 0.15 });
             colors.Add(DefaultColorSet.Blue, new SolidColorBrush(Colors.Blue) { Opacity = 0.15 });
             colors.Add(DefaultColorSet.Black, new SolidColorBrush(Colors.Black) { Opacity = 0.15 });
         }
-        //[STAThread]
-        public void ChangeDefaultColor(SeriesCollection seriesCollection, string name)
+        public CustomChart SpecificRequest(CustomChart chart)
         {
-            //PieChart piechart = new PieChart();
-            int i = 0;
             Array values = Enum.GetValues(typeof(DefaultColorSet));
             Random rnd = new Random();
 
-            if (name != null)
+            if (chart.name != null)
             {
-                if (name == "PieChart")
+                if (chart.name == "PieChart")
                 {
-                    while (i < seriesCollection.Count)
-                    //for (int i = 0; i < seriesCollection.Count; i++)
+                    for (int i = 0; i < chart.Count; i++)
                     {
-                        //Random rnd = new Random();
                         DefaultColorSet randomBar = (DefaultColorSet)values.GetValue(rnd.Next(values.Length));
                         SolidColorBrush someColor = colors[randomBar];
                         //((PieSeries)seriesCollection[i]).Fill = someColor;
-                        piechart.Series = seriesCollection;
+                        piechart.Series = chart;
                         ((PieSeries)piechart.Series[i]).Fill = someColor;
-                        seriesCollection = piechart.Series;
-                        i++;
+                        chart = (CustomChart)piechart.Series;
                     }
+                    return chart;
                 }
-                else if (name == "LineChart")
+                else if (chart.name == "LineChart")
                 {
-                    while (i < seriesCollection.Count)
-                    //for (int i = 0; i < seriesCollection.Count; i++)
+                    for (int i = 0; i < chart.Count; i++)
                     {
-                        //Random rnd = new Random();
                         DefaultColorSet randomBar = (DefaultColorSet)values.GetValue(rnd.Next(values.Length));
                         SolidColorBrush someColor = colors[randomBar];
-                        ((LineSeries)seriesCollection[i]).Fill = someColor;
+                        ((LineSeries)chart[i]).Fill = someColor;
                     }
+                    return chart;
                 }
             }
+            return chart;
         }
     }
 }

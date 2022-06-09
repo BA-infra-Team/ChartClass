@@ -1,6 +1,6 @@
 ﻿namespace ChartClass
 {
-    partial class StrategyForm
+    partial class FacadeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // StrategyForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 761);
-            this.Name = "StrategyForm";
-            this.Text = "StrategyForm";
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "FacadeForm";
         }
 
         #endregion

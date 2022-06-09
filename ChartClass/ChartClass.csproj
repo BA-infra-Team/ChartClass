@@ -60,6 +60,15 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdapterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdapterForm.Designer.cs">
+      <DependentUpon>AdapterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdapterPattern\Adaptee.cs" />
+    <Compile Include="AdapterPattern\Adapter.cs" />
+    <Compile Include="AdapterPattern\IChartMaker.cs" />
     <Compile Include="Chart\cColumn.cs" />
     <Compile Include="Chart\cGaugeChart.cs" />
     <Compile Include="Chart\cLineChart.cs" />
@@ -76,7 +85,15 @@
     <Compile Include="DecoratorForm.Designer.cs">
       <DependentUpon>DecoratorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DecoratorPattern\ChartProperty\Class1.cs" />
     <Compile Include="DecoratorPattern\Decorator\FillDeco.cs" />
+    <Compile Include="FacadeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacadeForm.Designer.cs">
+      <DependentUpon>FacadeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FacadePattern\ChartFacade.cs" />
     <Compile Include="FactortyPattern\CustomChart.cs" />
     <Compile Include="FactortyPattern\ChartStore.cs" />
     <Compile Include="CustomPieChart.cs" />
@@ -129,6 +146,9 @@
     <Compile Include="StrategyPattern\BehaviorInterface\DataBehavior.cs" />
     <Compile Include="StrategyPattern\BehaviorInterface\DynamicVisibility.cs" />
     <Compile Include="StrategyPattern\BehaviorInterface\ZoomBehavior.cs" />
+    <EmbeddedResource Include="AdapterForm.resx">
+      <DependentUpon>AdapterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FactoryMethod.resx">
       <DependentUpon>FactoryMethod.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +167,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StrategyForm.resx">
+      <DependentUpon>StrategyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

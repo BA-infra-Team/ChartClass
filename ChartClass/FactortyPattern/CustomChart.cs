@@ -6,7 +6,9 @@ using LiveCharts.Wpf;
 using LiveCharts.Wpf.Charts.Base;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
+using System.Windows.Forms.Integration;
 using System.Windows.Media;
 
 namespace ChartClass
@@ -31,10 +33,13 @@ namespace ChartClass
         //    }
         //    return uniqueInstance;
         //}
-        public CustomChart() { }
 
         public string name;
 
+        public CustomChart() 
+        {
+
+        }
         public void Show(FactoryMethod form)
         {
             form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -59,7 +64,35 @@ namespace ChartClass
             }
             form.Controls.Add(form.elementHost);
         }
-
+        public void Show(AdapterForm form, CustomChart chart, Panel panel,ElementHost elementhost)
+        {
+            elementhost.Dock = System.Windows.Forms.DockStyle.Fill;
+            elementhost.Location = new System.Drawing.Point(0, 0);
+            elementhost.Name = "elementHost";
+            elementhost.Size = new System.Drawing.Size(984, 486);
+            elementhost.TabIndex = 0;
+            elementhost.Text = "elementHost";
+            if (name != null)
+            {
+                if (name == "PieChart")
+                {
+                    piechart.Series = chart;
+                    elementhost.Child = piechart;
+                }
+                else if (name == "LineChart")
+                {
+                    catersianchart.Series = chart;
+                    elementhost.Child = catersianchart;
+                }
+                else if (name == "RowChart")
+                {
+                    catersianchart.Series = chart;
+                    elementhost.Child = catersianchart;
+                }
+            }
+            //form.Controls.Add(form.LeftPanel);
+            panel.Controls.Add(elementhost);
+        }
         public void Show(StrategyForm form)
         {
             form.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -73,15 +106,6 @@ namespace ChartClass
                 if (name == "PieChart")
                 {
                     piechart.Series = this;
-                    //List<SolidColorBrush> brush = new List<SolidColorBrush>();
-                    //brush.Add(new SolidColorBrush(Colors.Red));
-                    //brush.Add(new SolidColorBrush(Colors.Blue));
-                    //brush.Add(new SolidColorBrush(Colors.Black));
-                    //brush.Add(new SolidColorBrush(Colors.Yellow));
-                    //for (int i=0; i<piechart.Series.Count;i++)
-                    //{
-                    //    ((PieSeries)piechart.Series[i]).Fill = brush[i];
-                    //}
                     form.elementHost.Child = piechart;
                 }
                 else if (name == "LineChart")
@@ -101,6 +125,29 @@ namespace ChartClass
         //public abstract void Add();
         //public abstract void Delete();    
         //public abstract void Show_All();
+
+        public virtual CustomChart request(CustomChart chart)
+        {
+            Console.WriteLine("Called Target Request");
+            if(name!= null)
+            {
+                if (chart.name == "PieChart")
+                {
+                    for (int i = 0; i < chart.Count; i++)
+                    {
+                        ((PieSeries)this[i]).Fill = new SolidColorBrush(Colors.Red);
+                    }
+                }
+                else if (chart.name == "LineChart")
+                {
+                    for (int i = 0; i < chart.Count; i++)
+                    {
+                        ((LineSeries)this[i]).Fill = new SolidColorBrush(Colors.Red);
+                    }
+                }
+            }
+            return chart;
+        }
 
         public void getName(string Chartname)
         {
